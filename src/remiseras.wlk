@@ -11,13 +11,7 @@ object gabriela{
 
 
 object mariela{
-	method precioViaje(cliente,kms){
-		if((cliente.pesoElKilometro() * kms)<=50){
-			return 50
-		}else{
-			return cliente.pesoElKilometro() * kms
-		}
-	}
+	method precioViaje(cliente,kms){return 50.max(cliente.pesoElKilometro() * kms) }	
 }
 
 
@@ -31,7 +25,6 @@ object juana{
 	}
 }
 
-
 object lucia{
 	var aQuienRemplaza
 	method setAQuienRemplaza(cliente){aQuienRemplaza=cliente}
@@ -39,12 +32,3 @@ object lucia{
 	
 	method precioViaje(cliente,kms){return aQuienRemplaza.precioViaje(cliente,kms)}
 }
-
-
-
-
-
-
-
-
-

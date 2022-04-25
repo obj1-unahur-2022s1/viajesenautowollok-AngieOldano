@@ -5,11 +5,12 @@ object ludmila {
 }
 
 object anaMaria {
-	var pesoElKilometro=30
-	var economicamenteEstable=true
+	var pesoElKilometro
+	var economicamenteEstable
 	
 	method pesoElKilometro(){return pesoElKilometro}
-	method setEstasBienEconomicamente(){economicamenteEstable=false}
+	method setMalEconomicamente(){economicamenteEstable=false}
+	method setBienEconomicamente(){economicamenteEstable=true}
 	method estasEconomicamenteEstable(){return economicamenteEstable}
 	method setPesoElKilometro(){
 		if (economicamenteEstable){
@@ -22,21 +23,22 @@ object anaMaria {
 }
 
 object teresa{
-	const pesoElKilometro=22///////////////////////////////////////////////////
+	var pesoElKilometro=22
 	
 	method pesoElKilometro(){return pesoElKilometro}
-	
+	method setPesoElKilometro(precio){pesoElKilometro=precio}
 }
 
 
 object melina{
-	var paraQuienTrabaja = null
-	var pesoElKilometro	= paraQuienTrabaja.pesoElKilometro() - 3
+	var paraQuienTrabaja 
+	var pesoElKilometro	
 
-	
-	//method setPesoElKilometro(cliente){persona.pesoElKilometro() - 3}
 	method pesoElKilometro(){return pesoElKilometro}
-	method setParaQuienTrabaja(cliente){paraQuienTrabaja=cliente}
+	method setParaQuienTrabaja(cliente){
+		paraQuienTrabaja=cliente
+		pesoElKilometro= paraQuienTrabaja.pesoElKilometro() - 3
+	}
 	method paraQuienTrabaja(){return paraQuienTrabaja}
 
 }

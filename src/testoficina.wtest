@@ -4,6 +4,8 @@ import clientes.*
 
 
 test "viaje ana maria 10kilometros" {
+	anaMaria.setBienEconomicamente()
+	anaMaria.setPesoElKilometro()	
 	oficina.asignarRemiseras(roxana,juana)
 	assert.equals(juana,oficina.remiseraElegidaParaViaje(anaMaria,10))
 
