@@ -1,34 +1,38 @@
+/*
+ * Remiseras: Bien implementados, te dejo algunas sugerencias en el código.
+ */
+
 import clientes.*
 
 object roxana{
-	method precioViaje(cliente,kms){return cliente.pesoElKilometro() * kms}
+	/* Bien, solo te dejo el modo resumido de los getter */
+	method precioViaje(cliente,kms) = cliente.pesoElKilometro() * kms
 }
 
 
 object gabriela{
-	method precioViaje(cliente,kms){return (cliente.pesoElKilometro() * kms)*1.2}
+	/* Bien. No hacen falta algunos paréntesis que te los elimino y pongo el modo resumido */
+	method precioViaje(cliente,kms) = cliente.pesoElKilometro() * kms * 1.2 
 }
 
 
 object mariela{
-	method precioViaje(cliente,kms){return 50.max(cliente.pesoElKilometro() * kms) }	
+	/* Bien! */
+	method precioViaje(cliente,kms) = 50.max(cliente.pesoElKilometro() * kms) 	
 }
 
 
 object juana{
-	method precioViaje(cliente,kms){
-		if(kms>8){
-			return 200
-		}else{
-			return 100
-		}
-	}
+	/* Bien. Te dejo una forma bien resumida para el siguiente método cuando hay condicionales
+	 * y sin usar return
+	 */
+	method precioViaje(cliente,kms) = if(kms>8) 200 else 100
 }
 
 object lucia{
+	/* Bien. El método aQuienRemplaza() realmente no es necesario. Te dejo las formas resumidas */
 	var aQuienRemplaza
+
 	method setAQuienRemplaza(cliente){aQuienRemplaza=cliente}
-	method aQuienRemplaza(){return aQuienRemplaza}
-	
-	method precioViaje(cliente,kms){return aQuienRemplaza.precioViaje(cliente,kms)}
+	method precioViaje(cliente,kms) = aQuienRemplaza.precioViaje(cliente,kms)
 }

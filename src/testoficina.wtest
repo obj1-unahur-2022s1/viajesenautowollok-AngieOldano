@@ -1,3 +1,9 @@
+/*
+ * Test: Bien(-). Se estaba seteando un valor mediante un método que no indicaba ningún valor 
+ * setPesoElKilometro(). Los métodos de indicación deben tener algún parámetro/argumento. Esto se arrastró
+ * del problema comentado en los métodos de los objetos en el archivo clientes.
+ * Y acá faltaría testear el método  intercambiarRemiseras(), te dejé un ejemplo.
+ */
 import oficina.*
 import remiseras.*
 import clientes.*
@@ -5,7 +11,7 @@ import clientes.*
 
 test "viaje ana maria 10kilometros" {
 	anaMaria.setBienEconomicamente()
-	anaMaria.setPesoElKilometro()	
+
 	oficina.asignarRemiseras(roxana,juana)
 	assert.equals(juana,oficina.remiseraElegidaParaViaje(anaMaria,10))
 
@@ -20,5 +26,12 @@ test "viaje teresa 10 kilometros" {
 test "viaje teresa 4 kilometros" {
 	oficina.asignarRemiseras(roxana,juana)
 	assert.equals(roxana,oficina.remiseraElegidaParaViaje(teresa,4))
+
+}
+
+test "viaje teresa 4 kilometros, pero al intercambiar remiseras queda elegida juana" {
+	oficina.asignarRemiseras(roxana,juana)
+	oficina.intercambiarRemiseras()
+	assert.equals(juana,oficina.remiseraElegidaParaViaje(teresa,4))
 
 }
